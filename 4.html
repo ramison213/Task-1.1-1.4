@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>4. Шахматная доска</title>
+  <style>
+    .wrapper {
+      font-size: 0;
+      text-align: center;
+    }
+    .cell {
+      width: 60px;
+      height: 60px;
+      display: inline-block;
+      font-size: 0;
+      background: black;
+    }
+    .row:nth-child(2n-1) .cell:nth-child(2n-1) {
+      background: lightgrey;
+    }
+    .row:nth-child(2n) .cell:nth-child(2n) {
+      background: lightgrey;
+    }
+  </style>
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+
+    // Задание 4. Отрисовать шахматную доску
+
+    const arr = [ 1, 2, 3, 4, 5, 6, 7, 8 ];
+
+    const row = arr.map((elem, i) => <span className="cell" key={ i }></span>);
+    const table = arr.map((elem, i) => <div key={ i } className="row">{ row }</div>);
+
+    ReactDOM.render(
+      <div className="wrapper">{ table }</div>,
+      document.getElementById('root')
+    );
+  </script>
+</body>
+</html>
